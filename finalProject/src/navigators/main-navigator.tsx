@@ -8,7 +8,7 @@ import HomePage from "../screens/Home/HomeScreen"
 import LoginPage from "../screens/CreateAccout/Login"
 import RegisterPage from "../screens/CreateAccout/Register"
 import WelcomePage from "../screens/CreateAccout/Welcome"
-// import DetailProduct from "../screens/DetailProduct/DetailProduct"
+import DetailProduct from "../screens/DetailProduct/DetailProduct"
 // import ProfileUser from "../screens/Profile/ProfileUser"
 // import ListProduct from "../screens/ViewAll/ViewProduct"
 // import HistoryOrder from "../screens/History/HistoryOrder"
@@ -28,8 +28,8 @@ const MainStack = () => {
       <Stack.Screen name={screenName.LoginPage} component={LoginPage} />
       <Stack.Screen name={screenName.RegisterPage} component={RegisterPage} />
       <Stack.Screen name={screenName.HomePage} component={HomePage} />
-      {/* <Stack.Screen name={screenName.DetailProduct} component={DetailProduct} />
-      <Stack.Screen name={screenName.ProfileUser} component={ProfileUser} />
+      <Stack.Screen name={screenName.DetailProduct} component={DetailProduct} />
+      {/* <Stack.Screen name={screenName.ProfileUser} component={ProfileUser} />
       <Stack.Screen name={screenName.ListProduct} component={ListProduct} />
       <Stack.Screen name={screenName.HistoryOrder} component={HistoryOrder} />
       <Stack.Screen name={screenName.CreateProduct} component={CreateProduct} /> */}
