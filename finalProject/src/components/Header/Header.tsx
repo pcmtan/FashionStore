@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, ImageBackground } from "react-native"
+import { View, StyleSheet, ImageBackground, SafeAreaView } from "react-native"
 
 const HeaderNavigation = ({ childrenLeft, childrenMiddle, childrenRight, allViewHeader, imageUrl }: any) => {
     return (
@@ -35,7 +35,12 @@ const styles = StyleSheet.create({
 
     container: {
         flexDirection: "row",
-        height: 50, 
+        height: 50,
+        position: "absolute",
+        top: 30,
+        right: 1,
+        zIndex: 1,
+        width: "100%"
     },
     headerInSide: {
         flexDirection: "row",
