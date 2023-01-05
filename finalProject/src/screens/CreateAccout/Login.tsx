@@ -18,10 +18,14 @@ import { screenName } from '../../navigators/screens-name';
 import { goBack, navigate } from '../../navigators/root-navigator';
 import HeaderNavigation from '../../components/Header/Header';
 import { isValidEmail, isValidPassword } from '../../ultils/validation'
+import { showError, showSuccess } from '../../ultils/helperFunc';
 
 export interface IAccount {
+    name: string,
+    password: string,
     email: string,
-    password: string
+    avatar: string,
+    address: string
 }
 
 const LoginPage = () => {
@@ -51,19 +55,18 @@ const LoginPage = () => {
         ).then((response) => response.json())
         setDataAccount(res)
     }    
+    console.log(dataAccount);
     
-    const checkInfo = (email: string, password: string) => {
-        for (let i = 0; i < dataAccount.length; i++) {
-          if (dataAccount[i].email === email && dataAccount[i].password === password) {
-            navigate(screenName.HomePage, {
-              username: email,
-              password: password,
-            });
-          } else {
+    const checkInfo = (email: string, password: string) => {        
+        if(dataAccount.some((data) => (data.email === email && data.password === password))){
+            navigate(screenName.HomePage)    
+            showSuccess("Đăng Nhập Thành Công")        
+        }else if (email == "" || password == ""){
+            showError("Vui Lòng Nhập Tài Khoản hoặc Mật Khẩu")
+        }else{
             setGetEmail('');
             setGetPassword('');
-            // alert('Email and password is incorrect');
-          }
+            showError("Email and password is incorrect")
         }
       };
     return (
