@@ -1,0 +1,251 @@
+[{
+        "nameFood": "Bún Bò Huế",
+        "price": "25.000 - 60.000",
+        "image": "https://statics.vinpearl.com/bun-bo-hue-1_1628650972.jpg",
+        "desc": "Bún bò là một trong những đặc sản của xứ Huế, mặc dù món bún này phổ biến trên cả ba miền ở Việt Nam và cả người Việt tại hải ngoại. Tại Huế, món này được gọi đơn giản là  bún bò hoặc gọi cụ thể hơn là bún bò thịt bò. Các địa phương khác gọi là bún bò Huế, bún bò gốc Huế để chỉ xuất xứ của món ăn này. Món ăn có nguyên liệu chính là bún, thịt bắp bò, giò heo, cùng nước dùng có màu đỏ đặc trưng và vị sả và ruốc. Đôi khi tô bún còn được thêm vào thịt bò tái, chả cua, và các loại nguyên liệu khác tùy theo sở thích của người nấu",
+        "address": "Số 20 Bạch Đằng, Phú Cát, TP. Huế",
+        "type": "Quán Mệ Kéo",
+        "time": "6AM-8AM",
+        "id": "1"
+    },
+    {
+        "nameFood": "Bún Mắm Nêm",
+        "price": "15.000 - 30.000",
+        "image": "https://quahueonline.com/wp-content/uploads/2021/04/bun-mam-nem-hue-2.jpg",
+        "desc": "Một tô bún mắm nêm Huế thường gồm sợi bún tươi, rau sống, hoa chuối, giá đỗ, ăn kèm tai heo, nem, chả lụa, chả da… Sau khi xếp tất cả nguyên liệu vào tô, bạn sẽ rưới mắm nêm lên trên và trộn đều. Hương thanh mát đậm đà, sần sật, ăn thật đã miệng. Vị tươi mát kết hợp với sự đậm đà của mắm nêm làm cho món ăn thêm hấp dẫn, chỉ muốn ăn hoài không thôi.",
+        "address": "64 Bà Triệu, TP Huế",
+        "type": "Quán Mệ Thẻo",
+        "time": "7AM - 10PM",
+        "id": "2"
+    },
+    {
+        "nameFood": "Bún Thịt Nướng",
+        "price": "20.000 - 40.000",
+        "image": "https://wolverineair.com/wp-content/uploads/2019/09/bun-thit-nuong-hue-9.jpg",
+        "desc": "Món bún thịt nướng Huế trông đơn giản nhưng để được một tô bún ngon, đậm chất của Huế thì chẳng dễ dàng gì. Khó nhất là công đoạn chế biến thịt nướng. Thông thường, các mệ, các dì người Huế thường chọn mua thịt ba chỉ hoặc thịt nạc. Thịt lợn được thái mỏng cho vào một tô lớn rồi nêm gia vị gồm sả, tỏi, tiêu, mắm, muối, bột ngọt, dầu, đường, và một ít mè trắng để thịt dậy mùi thơm hơn khi nướng",
+        "address": "Trước Mặt Chợ Đông Ba",
+        "type": "Quán Anh Bé",
+        "time": "5PM - 9PM",
+        "id": "3"
+    },
+    {
+        "nameFood": "Bún Nghệ",
+        "price": "10.000 - 20.000",
+        "image": "https://media.truyenhinhdulich.vn/upload/news/8_2021/img94132_1630322761666_10525931082021.jpg",
+        "desc": "Bún nghệ Trần Quang Khải được cô chủ chế biến rất sạch sẽ, lòng xào nghệ thơm lắm lòng được cô rửa sạch, làm sạch mùi đặc trung rồi mới đem xào nên lòng xào với nghệ ăn bùi bùi, béo béo rồi cộng thêm mùi thơm của nghệ là tuyệt vời nhất. Bún nghệ nóng ăn với lòng xào nghệ có vị vừa ngon vừa đậm thì chỉ có thể gọi là tận hưởng. Lúc đói mà ăn bún xào nghệ là ăn 2 bát một lần không thấy ngấy đấy nhé!",
+        "address": "19 Trần Quang Khải, TP. Huế, TP Huế",
+        "type": "Bún Nghệ TQK",
+        "time": "12AM - 19PM",
+        "id": "4"
+    },
+    {
+        "nameFood": "Bún Trộn",
+        "price": "10.000 - 20.000",
+        "image": "https://kinhdoamthuchue.com/wp-content/uploads/2020/02/buntr%E1%BB%8Dn-720x720.jpg",
+        "desc": "Món bún trộn được tạo nên theo triết lý ngũ hành Kim - Mộc - Thủy - Hỏa - Thổ với 5 màu sắc hòa hợp. Màu trắng của những sợi bún (sợi miến), màu nâu của mộc nhĩ cắt nhỏ, màu xanh của các loại rau tươi ăn kèm, màu đỏ của ớt và cuối cùng là màu vàng ruộm của đậu chiên. Khi trộn lên các loại nguyên liệu sẽ hòa vào nhau, tạo nên món ăn không chỉ thơm ngon mà còn đẹp mắt.",
+        "address": "15 Lương Văn Can, phường  An Cựu, TP Huế",
+        "type": "Bún Trộn Cây Sung",
+        "time": "6AM - 10AM",
+        "id": "5"
+    },
+    {
+        "nameFood": "Bánh Nậm",
+        "price": "15.000 - 45.000",
+        "image": "https://thuathienhue.gov.vn/Portals/0/Medias/Nam2020/T1/banh-nam.jpg",
+        "desc": "Bánh nậm được làm từ những nguyên liệu hết sức đơn giản, dân dã. Đó là bột gạo nếp, tép tôm biển băm nhuyễn, nêm nếm gia vị rồi hấp chín. Tuy quá trình làm ra nó đơn giản nhưng lại đem tới món bánh vừa ngon thơm của hạt gạo – Tinh hoa của đất trời. Vị béo cùng giá trị dinh dưỡng từ thịt, tôm. Nó trở thành món ăn yêu thích của cả trẻ nhỏ tới người lớn tuổi.",
+        "address": "52 Lê Viết Lượng, TP Huế",
+        "type": "Quán Chi",
+        "time": "7AM - 7PM",
+        "id": "6"
+    },
+    {
+        "nameFood": "Bánh Lọc",
+        "price": "20.000 - 40.000",
+        "image": "https://baothuathienhue.vn/image/fckeditor/upload/2021/20211104/images/banh%20loc%201.jpg",
+        "desc": "Bánh lọc Huế hay còn gọi là bánh bột lọc hay bánh bột lọc Huế là loại bánh mang thương hiệu của xứ Huế mộng mơ, nhắc đến Huế thì không thể không nhắc đến món ẩm thực luôn khiến người ta mỗi lần nghĩ đến là lại “thèm”.",
+        "address": "8 Nguyễn Bỉnh Khiêm, TP Huế",
+        "type": "Quán Bà Đỏ",
+        "time": "6AM - 10PM",
+        "id": "7"
+    },
+    {
+        "nameFood": "Bánh Bèo",
+        "price": "20.000 - 40.000",
+        "image": "https://dulichkhampha24.com/wp-content/uploads/2021/04/banh-beo-hue.jpg",
+        "desc": "Bánh bèo là một trong những món đặc sản Huế mà bất cứ du khách nào đến đây cũng mong muốn một lần được thưởng thức. Bánh bèo có cái tên đặc biệt như thế là vì hình dạng giống như hình cái lá của cây bèo. Bánh bèo Huế được làm từ bột gạo tạo nên những chiếc bánh hình dáng tròn, nhỏ nhỏ trắng muốt nhưng lại rất bắt mắt.",
+        "address": "104/17/9 Kim Long, TP Huế",
+        "type": "Quán O Lé",
+        "time": "8AM - 8PM",
+        "id": "8"
+    },
+    {
+        "nameFood": "Bánh Ướt Thịt Nướng",
+        "price": "20.000 - 30.000",
+        "image": "https://image.thanhnien.vn/w1024/Uploaded/2014/saigonamthuc.thanhnien.com.vn/Pictures201403/Tan_Nhan/BanhuotthitnuongHuyenanh1-logo.jpg",
+        "desc": "Bánh ướt thịt nướng Huế là món ăn dân dã, có nguồn gốc chính từ vùng đất Kim Long – Thừa Thiên Huế. Đây là món ăn dùng trong bữa sáng, bữa điểm tâm. Điều làm nên sự độc đáo của món ăn là phần nước chấm từ tương mè đậu rất thơm ngon. Bánh ướt khác với món bánh cuốn thịt nướng ở Huế, bột bánh được pha bằng bột gạo, bột lọc, tráng mỏng hơn.",
+        "address": "50 Kim Long, TP Huế",
+        "type": "Bánh Ướt Huyền Anh",
+        "time": "7AM - 6PM",
+        "id": "9"
+    },
+    {
+        "nameFood": "Bánh Cuốn Tôm Chua",
+        "price": "20.000 - 30.000",
+        "image": "https://khamphadisan.com.vn/wp-content/uploads/2020/04/banh-cuon-tom-chua.jpg",
+        "desc": "Bánh cuốn tôm chua là một món ngon Huế được biến tấu từ món bánh ướt nguyên thủy và trình bày khéo léo, hút hồn thực khách với hương vị mang đậm bản sắc Huế. Các nguyên liệu chính để làm nên món ăn này bao gồm tôm chua, thịt luộc, bánh ướt và rau xanh…Dường như món ăn này đang dần rơi vào quên lãng trong tiềm thức của những người Huế trẻ, số lượng những người biết đến món bánh cuốn tôm chua thực sự không nhiều.",
+        "address": "address 10",
+        "type": "Gần Cầu Kho Rèn",
+        "time": "3PM - 6PM",
+        "id": "10"
+    },
+    {
+        "nameFood": "Bánh Ép",
+        "price": "3.000 - 15.000",
+        "image": "https://dulichkhampha24.com/wp-content/uploads/2020/12/banh-ep-hue-2.jpg",
+        "desc": "Chiếc bánh ép Huế nhỏ nhưng có vị béo ngậy, dai dai của bánh, chua giòn rau củ, mùi thơm của hành lá, thịt, trứng cùng sự tươi ngon của các loại hải sản tạo nên hương vị mê say khó cưỡng. Tất cả quyện hòa làm nên một món ăn trứ danh của thành phố cổ. Loại bánh này giòn rụm, ăn chơi rất nghiện. Mỗi người có thể ăn rất nhiều cái rồi xếp dĩa thành chồng cùng đếm như một thú vui.",
+        "address": "116 Lê Ngô Cát, TP Huế",
+        "type": "Bánh Ép Huệ",
+        "time": "2PM - 9PM",
+        "id": "11"
+    },
+    {
+        "nameFood": "Bánh Khoái",
+        "price": "15.000 - 25.000",
+        "image": "https://ticotravel.com.vn/wp-content/uploads/2022/05/banh-khoai-hue-1.jpg",
+        "desc": "Là một trong những quán bánh khoái ngon ở Huế mà người dân du lịch ghé thưởng thức. Giá thì vừa túi tiền nhưng mà bánh thì chẳng chê đâu vào đâu được. Mùi chát chát của vả cùng với vị bùi bùi của bánh khoái thì đã làm cho nhiều người chết mê rồi. Kéo ngay bạn bè đến đây trò chuyện và ăn đặc sản cố đô nào. Ăn rồi thì bạn khó quên được nó.",
+        "address": "29 Nguyễn Du, TP Huế",
+        "type": "Bánh Khoái Thu Lương",
+        "time": "7AM - 9PM",
+        "id": "12"
+    },
+    {
+        "nameFood": "Bánh Khoái Đầm Chuồn",
+        "price": "5.000 - 10.000",
+        "image": "https://toquoc.mediacdn.vn/280518851207290880/2022/9/13/img7011-1663006057828215225031.jpg",
+        "desc": "Đừng lo về tài chính mà hãy thoải mái thưởng thức bánh khoái ở đây nhé. Có nguyên con cá Kình ngay giữa bánh, cùng với vị nước chấm vừa mặn vừa ngọt mới ra hồn xứ Huế. Cuộn tròn bánh đưa vào miệng nó cứ tan tan, giòn giòn. Không sai khi quyết định tới đây ăn bánh khoái được. Đảm bảo với bạn dân du lịch sẽ có nuối tiếc khi không ở đây để thưởng thức thường xuyên. Đừng chần chừ và do dự nữa hãy đến ngay quán ở vùng ngoại ô này nhé.",
+        "address": "Chợ Chuồn, Phú Vang, TP Huế",
+        "type": "Cá Kình O Lành",
+        "time": "5PM - 9PM",
+        "id": "13"
+    },
+    {
+        "nameFood": "Mè Xửng",
+        "price": "15.000 - 50.000",
+        "image": "https://i.ytimg.com/vi/MgL39LGoNfo/maxresdefault.jpg",
+        "desc": "Mè Xửng Huế từ rất lâu đã trở thành biểu tượng gắn liền với con người nơi đây. Hiện nay, đặc sản này còn là niềm tự hào của những người con cố đô. Nếu ai đã từng đến Huế mà chưa thưởng thức Mè Xửng để nếm thử hương vị của món này thì quả là đáng tiếc. Sẽ thật thiếu sót nếu như đến Huế mà không mang món ăn này về làm quà.",
+        "address": "20 Chi Lăng, TP Huế",
+        "type": "Mè Xửng Thiên Hương",
+        "time": "7AM - 8PM",
+        "id": "14"
+    },
+    {
+        "nameFood": "Cơm Âm Phủ",
+        "price": "30.000 - 50.000",
+        "image": "https://statics.vinpearl.com/com-am-phu-hue-02_1631074972.jpg",
+        "desc": "Cơm âm phủ Huế được mệnh danh là “món ăn trăm năm lịch sử” chứa đựng vị mộc mạc của ẩm thực Huế và phong vị đặc trưng của cung đình xưa. Vậy nên dù nghe tên khá “đáng sợ”, nhưng nhiều du khách vẫn muốn thưởng thức món ăn này khi du lịch Huế. Vị thơm ngon giản dị sẽ khiến cho nhiều thực khách mê mẩn.",
+        "address": "35 Nguyễn Thái Học, TP Huế",
+        "type": "Cơm Âm Phủ",
+        "time": "7AM - 10PM",
+        "id": "15"
+    },
+    {
+        "nameFood": "Cơm Hến",
+        "price": "10.000 - 15.000",
+        "image": "https://www.vtr.org.vn/FileManager/Anh%20web%202019/Thang%207/0110/com%20hen.jpg",
+        "desc": "Cơm hến là một trong những món ăn từ hến quen thuộc nhất. Ở Huế thì chẳng thiếu nơi bán cơm hến. Nhắc tới món này, thường người ta sẽ nghĩ ngay đến cơm hến Bà Cam hay Hoa Đông..., chứ không phải ai cũng biết đến quán cơm hến nhỏ bé Cơm Hến Đập Đá. Hòa cùng cơn sốt cơm hến và nắm bắt được nhu cầu thưởng thức của giới trẻ, Cơm Hến Đập Đá được ra đời, đã trở thành điểm đến thường xuyên của thực khách, đặc biệt là đối tượng học sinh, sinh viên.",
+        "address": "1 Hàn Mặc Tử, TP Huế",
+        "type": "Cơm Hến Đập Đá",
+        "time": "6AM - 9PM",
+        "id": "16"
+    },
+    {
+        "nameFood": "Quán Chay",
+        "price": "20.000 - 90.000",
+        "image": "https://toplist.vn/images/800px/quan-chay-tam-hoa-801670.jpg",
+        "desc": "Đến với Quán Chay Tâm Hòa, thực khách sẽ được thỏa thích khám phá thực đơn hơn 50 món ăn chay truyền thống với đủ các loại súp, gỏi cuốn, khai vị, ăn nhẹ, món xào, món kho, cơm, canh, lẩu,…Tất cả đều được chế biến từ nguyên liệu rau, củ, quả hoàn toàn tự nhiên, đem đến cho thực khách một bữa ăn thanh đạm, giàu dinh dưỡng nhất.",
+        "address": "244/8 Điện Biên Phủ, TP Huế",
+        "type": "Quán Chay Tâm Hòa",
+        "time": "8AM - 8PM",
+        "id": "17"
+    },
+    {
+        "nameFood": "Nhà Hàng Chay",
+        "price": "30.000 - 100.000",
+        "image": "https://toplist.vn/images/800px/nha-hang-chay-hoa-vien-801661.jpg",
+        "desc": "Nhà Hàng Chay Hoa Viên là một nhà hàng chay chiếm được nhiều tình cảm của thực khách thích món chay. Không gian quán được thiết kế vô cùng tinh tế với những bức tranh về phật hài hòa, mang lại cảm giác yên tĩnh, thanh tịnh cho khách hàng khi đến quán. Đây là một trong những điểm cộng khiến cho Nhà Hàng Chay Hoa Viên được nhiều người biết đến.",
+        "address": "4 Võ Thị Sáu, TP Huế",
+        "type": "Nhà Hàng Chay Hoa Viên",
+        "time": "8AM - 8PM",
+        "id": "18"
+    },
+    {
+        "nameFood": "Quán Chay",
+        "price": "30.000 - 80.000",
+        "image": "https://toplist.vn/images/800px/lien-hoa-thu-quan-333493.jpg",
+        "desc": "Cơm Chay DƯỠNG SINH LIÊN HOA là một trong những quán cơm chay ngon và được nhiều người biết đến ở Huế hiện nay. Vị trí thuận lượi, gần trung tâm thành phố là một trong những điểm khiến khách hàng đến quán khá đông. Không gian được trang trí theo phong cách cổ xưa cung đình Huế cùng với các món ăn dân dã bình dị được chuẩn bị và chọn lựa một cách kĩ càng mang lại cho khách hàng sự yên bình và cảm giác thân thuộc khi đến với quán.",
+        "address": "3 Lê Quý Đôn, TP Huế",
+        "type": "Cơm Chay Dưỡng Sinh Liên Hoa",
+        "time": "8AM - 8PM",
+        "id": "19"
+    },
+    {
+        "nameFood": "Quán Chay",
+        "price": "15.000 - 60.000",
+        "image": "https://statics.vinpearl.com/com-chay-hue-7_1631530071.jpg",
+        "desc": "Nếu bạn đang muốn tìm một quán cơm chay có không gian đẹp và thơ mộng thì nhất định đừng bỏ qua nhà hàng An Nhiên. Không gian nơi đây rất nhẹ nhàng, yên tĩnh, tách biệt hoàn toàn với những xô bồ phố thị. Món ăn được trang trí rất bắt mắt, hương vị thơm ngon, xứng đáng là một nơi rất đáng để thử trong những ngày muốn ăn uống thanh đạm. ",
+        "address": "Đường tỉnh 10, Phú Thượng, TP Huế",
+        "type": "Quán Chay An Nhiên",
+        "time": "time 20",
+        "id": "20"
+    },
+    {
+        "nameFood": "Chè Sen Long Nhãn",
+        "price": "25.000",
+        "image": "https://quahueonline.com/wp-content/uploads/2021/06/che-hat-sen-long-nhan.jpg",
+        "desc": "Nguyên liệu của món ăn chỉ gồm hạt sen, nhãn, đường phèn và nước. Sen để nấu chè phải là sen tươi, hái ở hồ Tịnh Tâm. Sự khác biệt trong chất, vị của sen Tịnh Tâm chính là ở vị dịu mát thanh tao, mềm nhưng không bở, bùi bùi thơm thơm. Hái sen phải hái lúc sáng sớm khi những giọt sương mai còn đọng trên lá. Tinh hoa của đất trời kết lại nơi hạt ngọc bé nhỏ này.",
+        "address": "Lê Lợi, TP Huế",
+        "type": "Chè Sen Bọc Nhãn Lòng",
+        "time": "5PM - 10PM",
+        "id": "21"
+    },
+    {
+        "nameFood": "Bột Lọc Heo Quay",
+        "price": "15.000 - 20.000",
+        "image": "https://hoangviettravel.vn/wp-content/uploads/2020/08/che-bot-loc-heo-quay-hue-3-min.jpg",
+        "desc": "Chè bột lọc bọc thịt quay thực chất là những viên bột lọc bọc nhân thịt heo quay trên trong. Tham khảo ý kiến nhiều nghệ nhân ẩm thực Huế, không ai nhớ chè bột lọc heo quay xuất xứ từ đâu. Một số cho rằng, đó là sự kết hợp giữa ẩm thực vùng đất Phú Xuân và Campuchia xưa, hài hòa giữa mặn và ngọt, thanh và tục, âm và dương…",
+        "address": "Công Viên Thương Bạc",
+        "type": "Chè Mợ Tôn Đích",
+        "time": "5PM - 10PM",
+        "id": "22"
+    },
+    {
+        "nameFood": "Chè Hạt Sen",
+        "price": "25.000",
+        "image": "https://img-global.cpcdn.com/recipes/76d46242ad75c4a4/680x482cq70/che-h%E1%BA%A1t-sen-hu%E1%BA%BF-recipe-main-photo.jpg",
+        "desc": "Được chọn lọc những hạt sen tinh túy nhất từ hồ Tịnh Tâm, chè sen Huế đã trở thành món ăn được ưa thích nhất tại Nét Huế.",
+        "address": "Trần Hưng Đạo, TP Huế",
+        "type": "Chè Hạt Sen",
+        "time": "5PM - 10PM",
+        "id": "23"
+    },
+    {
+        "nameFood": "Chè Bắp",
+        "price": "10.000 - 15.000",
+        "image": "https://cdn.daynauan.info.vn/wp-content/uploads/2019/05/thay-bap-nep-bang-bap-my.jpg",
+        "desc": "Món chè bắp nước cốt dừa có vị thơm ngọt của bắp non hòa cùng nước cốt dừa béo ngậy, thoang thoảng hương thơm của lá dứa. Chè bắp Huế là món ăn nổi tiếng hấp dẫn mà ai cũng nên thử qua một lần khi có dịp ghé thăm thành phố Huế xinh đẹp. Nào, cùng Dạy nấu ăn Gia đình, Mở quán tìm hiểu cách làm món chè đặc biệt của xứ Huế này nhé!",
+        "address": "Công Viên Thương Bạc",
+        "type": "Chè Mợ Tôn Đích",
+        "time": "5PM - 10PM",
+        "id": "24"
+    },
+    {
+        "nameFood": "Quán Chè",
+        "price": "12.000 - 20.000",
+        "image": "https://statics.vinpearl.com/che-hem-hue-01_1631538368.jpg",
+        "desc": "Tới du lịch Huế, có một món đặc sản tinh hoa cố đô mà ai cũng đều yêu thích đó chính là chè hẻm Huế. Vậy tại sao giữa một “rừng” địa chỉ quán ăn, nơi này lại được yêu thích đến vậy? Tất cả sẽ được lý giải trong bài viết review chè hẻm nét ẩm thực Huế dưới đây!",
+        "address": "1/29 Hùng Vương, TP Huế",
+        "type": "Quán Chè Hẻm ",
+        "time": "2PM - 9PM",
+        "id": "25"
+    }
+]
