@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { screenName } from "./screens-name"
 import { navigationRef } from "./root-navigator"
 import { NavigationContainer } from "@react-navigation/native"
-
+import FlashMessage from "react-native-flash-message"
 import HomePage from "../screens/Home/HomeScreen"
 import LoginPage from "../screens/CreateAccout/Login"
 import RegisterPage from "../screens/CreateAccout/Register"
@@ -41,6 +41,9 @@ export const MainNavigator = () => {
   return (
     <NavigationContainer ref={navigationRef}>
      <MainStack />
+     <FlashMessage
+        position="top"
+      />
     </NavigationContainer>
   )
 }
