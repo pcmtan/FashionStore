@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   viewList: {
-    marginTop: 40,
+    flex: 1
   },
   text: {
     fontSize: 20,
