@@ -32,10 +32,12 @@ const DetailProduct = () => {
   }
   return (
     <SafeAreaView style={styles.container}>
-      <HeaderNavigation
-        childrenLeft={<HeaderLeft />}
-        childrenRight={<HeaderRight />}
-      />
+      <View style = {styles.headerAction}>
+        <HeaderNavigation
+          childrenLeft={<HeaderLeft />}
+          childrenRight={<HeaderRight />}
+        />
+      </View>
       <View style={[styles.viewImage, { width: windowWidth }]}>
         <Image source={{ uri: itemInfo.item.image }}
           style={styles.image} />
@@ -85,7 +87,14 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 10,
-    marginTop: 40
+    marginTop: 40,
+  },
+  headerAction:{
+    position: "absolute",
+    top:40,
+    zIndex: 1,
+    height:50,
+    width:"100%"
   },
   viewImage: {
     flex: 2,

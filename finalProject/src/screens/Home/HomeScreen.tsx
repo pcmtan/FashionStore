@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { View, Text, SafeAreaView, StyleSheet, ScrollView, TextInput, Image, TouchableOpacity } from "react-native";
 import { navigate } from "../../navigators/root-navigator";
 import { screenName } from "../../navigators/screens-name";
-import { iconAvatar, iconSearched, iconTrade } from "../../url";
+import { createTab, iconAvatar, iconCreate, iconSearched, iconTrade } from "../../url";
 import LocalBrand from "./LocalBrand/Brand"
 import ProductList from "./Product/ProductList"
+import {useDispatch, useSelector} from 'react-redux'
 
 export interface IAccount {
   name: string,
@@ -16,11 +17,12 @@ export interface IAccount {
 
 const HomePage = () => {
   const [searchText ,setSearchText] = useState("")
-
   const [dataAccount, setDataAccount] = useState<IAccount[]>([])
+  // const info = useSelector((state) => state.personalInfo)
 
     useEffect(() => {
-        getDataAccount()
+        getDataAccount()    
+            
     }, [])
 
     const getDataAccount = async () => {
@@ -57,13 +59,16 @@ const HomePage = () => {
               placeholder="Search..."
               style={styles.input} />
           </View>
-          <TouchableOpacity style={styles.trade}>
-            <Image source={iconTrade} />
+          <TouchableOpacity 
+            style={styles.trade}
+            onPress={() => navigate(screenName.CreateProduct)}>
+            <Image source={iconCreate} style ={{width: 50, height: 50}}/>
           </TouchableOpacity>
         </View>
       </View>
       <LocalBrand/>
       <ProductList/> 
+      <View style ={styles.boxWhite}></View>
     </SafeAreaView>
   )
 }
@@ -82,7 +87,7 @@ const styles = StyleSheet.create({
   },
   viewHeaderHome: {
     flex: 1, 
-    flexDirection:"row"
+    flexDirection:"row",
   },
   user: {
     flex: 1, 
@@ -90,12 +95,12 @@ const styles = StyleSheet.create({
     alignItems: "flex-end"
   },
   textWC1: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: "800",
-    paddingVertical: 8
+    paddingVertical: 5
   },
   textWC2: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: "600",
     color: "#696969",
   },
@@ -122,4 +127,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     fontWeight: "500",
   },
+  boxWhite: {
+    width: "100%", 
+    height: 60
+  }
 })

@@ -55,18 +55,17 @@ const LoginPage = () => {
         ).then((response) => response.json())
         setDataAccount(res)
     }    
-    console.log(dataAccount);
     
     const checkInfo = (email: string, password: string) => {        
         if(dataAccount.some((data) => (data.email === email && data.password === password))){
-            navigate(screenName.HomePage)    
+            navigate(screenName.HomeTabs)    
             showSuccess("Đăng Nhập Thành Công")        
         }else if (email == "" || password == ""){
             showError("Vui Lòng Nhập Tài Khoản hoặc Mật Khẩu")
         }else{
             setGetEmail('');
             setGetPassword('');
-            showError("Email and password is incorrect")
+            showError("Sai Tài Khoản hoặc Mật Khẩu")
         }
       };
     return (
@@ -86,7 +85,7 @@ const LoginPage = () => {
                         <View style={styles.inputView}>
                             <TextInput
                                 placeholderTextColor={'#696969'}
-                                placeholder="Enter Your Email"
+                                placeholder="Ex@gmail.com"
                                 style={styles.input}
                                 value={getEmail}
                                 onChangeText={(text) => {

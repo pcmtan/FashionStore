@@ -21,6 +21,7 @@ import {
   isValidName,
 } from '../../ultils/validation';
 import {screenName} from '../../navigators/screens-name';
+import { showSuccess, showWarning } from '../../ultils/helperFunc';
 
 const RegisterPage = () => {
   const [errorEmail, setErrorEmail] = useState('');
@@ -180,11 +181,11 @@ const RegisterPage = () => {
               style={styles.loginButton}
               onPress={() => {
                 if (checkPass()) {
-                  postAccount();
+                  // postAccount();
                   navigate(screenName.HomePage);
-                  alert('Register Success');
+                  showSuccess('Đăng Ký Thành Công');
                 } else {
-                  alert("Password and confirmation doesn't match");
+                  showWarning("Mẩu Khẩu Không Giống Nhau");
                   // console.log();
                 }
               }}

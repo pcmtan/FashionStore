@@ -13,6 +13,11 @@ const iconCart = require('./Image/icon-cart.png')
 const iconFavorites = require('./Image/icon-favorite.png')
 const iconHistory = require('./Image/icon-history.png')
 const iconAdd = require('./Image/icon-add.png')
+const homeTab = require('./Image/home-tab.png')
+const profileTab = require('./Image/profile-tab.png')
+const menuTab = require('./Image/menu-tab.png')
+const createTab = require('./Image/create-tab.png')
+const iconCreate = require('./Image/iconCreate.png')
 export {
     logoLogin,
     backgroundWC,
@@ -28,5 +33,10 @@ export {
     iconCart,
     iconHistory,
     iconFavorites,
-    iconAdd
+    iconAdd,
+    homeTab,
+    profileTab,
+    menuTab,
+    createTab,
+    iconCreate
 }

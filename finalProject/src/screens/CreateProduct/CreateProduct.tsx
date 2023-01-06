@@ -134,6 +134,7 @@ const CreateProduct = () => {
                                 <Text style={styles.textLogin}>Reset</Text>
                             </TouchableOpacity>
                         </View>
+                        <View style ={styles.boxWhite}></View>
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>
@@ -146,7 +147,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
-        // alignItems: "center"
     },
     containerHeader: {
         flex: 1,
@@ -227,5 +227,9 @@ const styles = StyleSheet.create({
     },
     viewButton: {
         flexDirection: 'row'
+    },
+    boxWhite: {
+        width: "100%",
+        height: 80
     }
 })

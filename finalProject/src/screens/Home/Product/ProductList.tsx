@@ -8,6 +8,7 @@ import {
   FlatList,
   ScrollView,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
 import {screenName} from '../../../navigators/screens-name';
 import {responsive} from '../../../ultils/reponsive';
@@ -30,6 +31,7 @@ const ProductList = () => {
   useEffect(() => {
       getDataFoods();
     }, []);
+
     
     const getDataFoods = async () => {
         const res = await fetch(

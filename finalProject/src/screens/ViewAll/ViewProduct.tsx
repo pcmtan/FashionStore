@@ -140,6 +140,7 @@ const ListProduct = () => {
           showsVerticalScrollIndicator={false}
         />
       </View>
+      <View style ={styles.boxWhite}></View>
     </SafeAreaView>
   );
 };
@@ -243,4 +244,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'black',
   },
+  boxWhite: {
+    width: "100%", 
+    height: 80
+  }
 });
