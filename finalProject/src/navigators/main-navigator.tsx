@@ -8,6 +8,7 @@ import LoginPage from "../screens/CreateAccout/Login"
 import RegisterPage from "../screens/CreateAccout/Register"
 import WelcomePage from "../screens/CreateAccout/Welcome"
 import HomeTabs from "./tab-navigator"
+import DetailProduct from "../screens/DetailProduct/DetailProduct"
 
 const Stack = createNativeStackNavigator()
 
@@ -22,6 +23,7 @@ const MainStack = () => {
       <Stack.Screen name={screenName.WelcomePage} component={WelcomePage} />
       <Stack.Screen name={screenName.LoginPage} component={LoginPage} />
       <Stack.Screen name={screenName.RegisterPage} component={RegisterPage} />
+      <Stack.Screen name={screenName.DetailProduct} component={DetailProduct} />
       <Stack.Screen name={screenName.HomeTabs} component={HomeTabs} />
 
     </Stack.Navigator>

@@ -9,6 +9,8 @@ import {
   FlatList,
   TextInput,
 } from 'react-native';
+import { PanGestureHandler, PanGestureHandlerGestureEvent } from 'react-native-gesture-handler';
+import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
 import HeaderNavigation from '../../components/Header/Header';
 import { goBack, navigate } from '../../navigators/root-navigator';
 import { screenName } from '../../navigators/screens-name';
@@ -77,32 +79,49 @@ const ListProduct = () => {
     }
   };
 
+  const translateX = useSharedValue(0)
+
+  const panGesture = useAnimatedGestureHandler<PanGestureHandlerGestureEvent>({
+    onActive: (event) => {
+      translateX.value = event.translationX
+    },
+    // onEnter: () => {}
+  })
+
+  const rStyle = useAnimatedStyle(()=> ({
+    transform : [{
+      translateX: translateX.value
+    }]
+  }))
+
   const renderItems = (item: IFoods, index) => {
     return (
-      <TouchableOpacity
-        style={styles.item}
-        key={index}
-        onPress={() => navigate(screenName.DetailProduct, { item })}>
-        <Image
-          source={{
-            uri: item.image,
-          }}
-          style={styles.itemPhoto}
-          resizeMode="cover"
-        />
-        <View style={styles.viewInfo}>
-          <Text style={styles.nameProduct}>{item.nameFood}</Text>
-          <Text style={styles.tagName}>
-            Tên: <Text style={styles.infoTag}>{item.type}</Text>
-          </Text>
-          <Text style={styles.tagName}>
-            Giá: <Text style={styles.infoTag}>{item.price}</Text>
-          </Text>
-          <Text style={styles.tagName}>
-            Giờ Mở: <Text style={styles.infoTag}>{item.time}</Text>
-          </Text>
-        </View>
-      </TouchableOpacity>
+      <PanGestureHandler onGestureEvent={panGesture}>
+        <TouchableOpacity
+          style={styles.item}
+          key={index}
+          onPress={() => navigate(screenName.DetailProduct, { item })}>
+          <Image
+            source={{
+              uri: item.image,
+            }}
+            style={styles.itemPhoto}
+            resizeMode="cover"
+          />
+          <Animated.View style={[styles.viewInfo, rStyle]}>
+            <Text style={styles.nameProduct}>{item.nameFood}</Text>
+            <Text style={styles.tagName}>
+              Tên: <Text style={styles.infoTag}>{item.type}</Text>
+            </Text>
+            <Text style={styles.tagName}>
+              Giá: <Text style={styles.infoTag}>{item.price}</Text>
+            </Text>
+            <Text style={styles.tagName}>
+              Giờ Mở: <Text style={styles.infoTag}>{item.time}</Text>
+            </Text>
+          </Animated.View>
+        </TouchableOpacity>
+      </PanGestureHandler>
     );
   };
   return (
@@ -208,7 +227,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 2.84,
-    elevation: 5,
     height: 120,
     width: '100%',
     flexDirection: 'row',

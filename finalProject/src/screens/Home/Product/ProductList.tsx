@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 2.84,
-    elevation: 5,
     height: 120,
     width: '100%',
     flexDirection: 'row',

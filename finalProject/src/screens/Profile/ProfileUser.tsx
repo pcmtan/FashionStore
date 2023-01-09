@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         paddingHorizontal: 20,
-        paddingVertical: 40
+        paddingVertical: 20,
     },
     viewInfo: {
         flex: 1,
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     },
     headerInfo: {
         flexDirection: "row",
-        marginTop: 60,
+        marginTop: 30,
         height:100,
         backgroundColor: "#dcdcdc",
         shadowColor: '#000000',
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     },
     bodyInfo: {
         height: 300,
-        marginTop: 40,
+        marginTop: 20,
         backgroundColor: "#dcdcdc",
         shadowColor: '#000000',
         shadowOffset: {
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     },
     buttonLogout: {
         backgroundColor: "#00bfff" , 
-        marginTop:60, 
+        marginTop:30, 
         alignItems: "center",
         justifyContent: "center",
         marginHorizontal: 40,
