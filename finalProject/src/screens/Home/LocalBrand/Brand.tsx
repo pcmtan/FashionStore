@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, Image, FlatList, Dimensions, Text } from 'react-native';
+import { View, StyleSheet, Image, Dimensions } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
 
 export interface ILocal {

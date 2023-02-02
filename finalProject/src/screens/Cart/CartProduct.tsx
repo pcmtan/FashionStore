@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   SafeAreaView,
@@ -42,6 +42,7 @@ export const CartProduct = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [dataCart, setDataCart] = useState<IFoods[]>([]);
   const [total, setTotal] = useState<number>();
+  const [totalShip, setTotalShip] = useState<number>();
   const [refresh, setRefresh] = useState<number>(0)
   const navigation = useNavigation()
   const BG_Image =
@@ -83,7 +84,7 @@ export const CartProduct = () => {
         setRefreshControl(false);
       }, 1000)
       setTimeout(() => {
-        setIsLoading(false)      
+        setIsLoading(false)
       }, 2000)
     });
     return focusData
@@ -110,8 +111,10 @@ export const CartProduct = () => {
               setDataCart(productData);
             });
             getTotal(productData);
+            getShipper(productData);
           } else {
             getTotal(productData);
+            getShipper(productData);
           }
         });
       })
@@ -131,10 +134,10 @@ export const CartProduct = () => {
   };
   const handleMinus = (index) => {
     const temp = dataCart;
-    if (temp[index].quantity == 1) {
-      return temp[index].quantity == 1
+    if (temp[index].quantity <= 1) {
+      notificationRemove(temp[index].id)
     } else {
-      temp[index].quantity = temp[index].quantity - 1;
+      temp[index].quantity = temp[index].quantity - 1
     }
     setDataCart(temp);
     setRefresh(Math.random());
@@ -155,6 +158,16 @@ export const CartProduct = () => {
     setTotal(total);
     setRefresh(Math.random());
   };
+
+  const getShipper = priceShipper => {
+    let totalShip = 0 ;
+    for(let i = 0; i < priceShipper.length; i++) {
+      let priceShip = priceShipper[i].price
+      totalShip += priceShip
+    }
+    setTotalShip(totalShip)
+    setRefresh(Math.random());
+  }
 
   const deleteItemFromCart = ID => {
     const newArray = dataCart.filter(item => !ID.includes(item.id));
@@ -280,7 +293,7 @@ export const CartProduct = () => {
                   </View>
                   <View style={styles.totalTag}>
                     <Text style={styles.fontS}>Shipping Tax:</Text>
-                    <Text style={styles.fontS}>{(total || 0) * 0.2} VND</Text>
+                    <Text style={styles.fontS}>{(totalShip || 0) * 0.2} VND</Text>
                   </View>
                   <View style={[styles.totalTag, { paddingVertical: 10 }]}>
                     <Text style={styles.fontS}>Total:</Text>

@@ -18,9 +18,6 @@ import { iconStar, iconBack, iconHeart, iconHeaderRed } from '../../url';
 import { useFocusEffect, useNavigation, useRoute } from '@react-navigation/native';
 import { screenName } from '../../navigators/screens-name';
 import { getItemStorage, setItemStorage } from '../../components/AsyncStorage/AsyncStorage';
-// redux
-import { useDispatch, useSelector } from 'react-redux'
-import AsyncStorage from '@react-native-community/async-storage';
 import { showSuccess, showWarning } from '../../ultils/typeS/helperFunc';
 
 export interface IFoods {
