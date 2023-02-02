@@ -1,5 +1,5 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useEffect, useState} from 'react';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -9,9 +9,11 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
+  ViewToken,
+  Animated,
 } from 'react-native';
 import {screenName} from '../../../navigators/screens-name';
-import {responsive} from '../../../ultils/reponsive';
+import {useSharedValue} from 'react-native-reanimated';
 import {navigate} from '../../../navigators/root-navigator';
 
 export interface IFoods {
@@ -23,49 +25,77 @@ export interface IFoods {
   price: number;
   type: string;
   time: string;
+  category: string;
 }
+const ITEM_IMAGE = 100;
+const ITEM_PADDING = 10;
+const ITEM_MRBottom = 15;
+const ITEM_SIZE = ITEM_IMAGE + ITEM_PADDING * 2 + ITEM_MRBottom;
 
 const ProductList = () => {
+  const route = useRoute<any>()
+  const isCreateProduct = route?.params?.isCreateProduct || false
+  console.log("....", route);  
+  
   const [dataFoods, setDataFoods] = useState<IFoods[]>([]);
+  const scrollY = React.useRef(new Animated.Value(0)).current;
+  const [create, setCreate] = useState(false);
 
   useEffect(() => {
-      getDataFoods();
-    }, []);
+    getDataFoods();
+  }, [isCreateProduct]);
 
-    
-    const getDataFoods = async () => {
-        const res = await fetch(
-            'https://63ae5ea23e46516916702e14.mockapi.io/foods',
-            ).then(response => response.json());
-            setDataFoods(res);            
-        };     
-        
+  // useLayoutEffect(()=>{
+  //   console.log(123123);
+  // }, [])
+
+  const getDataFoods = async () => {
+    const res = await fetch(
+      'https://63ae5ea23e46516916702e14.mockapi.io/foods',
+    ).then(response => response.json());
+    setDataFoods(res);
+  };
+
   const renderItems = (item: IFoods, index) => {
-      return (
-          <TouchableOpacity
+    const scale = scrollY.interpolate({
+      inputRange: [-1, 0, ITEM_SIZE * index, ITEM_SIZE * (index + 2)],
+      outputRange: [1, 1, 1, 0],
+    });
+    const opacity = scrollY.interpolate({
+      inputRange: [-1, 0, ITEM_SIZE * index, ITEM_SIZE * (index + 0.6)],
+      outputRange: [1, 1, 1, 0],
+    });
+    return (
+      <Animated.View
+        style={{
+          transform: [{scale}],
+          opacity,
+        }}>
+        <TouchableOpacity
           style={styles.item}
           key={index}
           onPress={() => navigate(screenName.DetailProduct, {item})}>
-        <Image
-          source={{
+          <Image
+            source={{
               uri: item.image,
             }}
             style={styles.itemPhoto}
             resizeMode="cover"
-        />
-        <View style={styles.viewInfo}>
-          <Text style={styles.nameProduct}>{item.nameFood}</Text>
-          <Text style={styles.tagName}>
-            Tên: <Text style={styles.infoTag}>{item.type}</Text>
-          </Text>
-          <Text style={styles.tagName}>
-            Giá: <Text style={styles.infoTag}>{item.price}</Text>
-          </Text>
-          <Text style={styles.tagName}>
-            Giờ Mở: <Text style={styles.infoTag}>{item.time}</Text>
-          </Text>
-        </View>
-      </TouchableOpacity>
+          />
+          <View style={styles.viewInfo}>
+            <Text style={styles.nameProduct}>{item.nameFood}</Text>
+            <Text style={styles.tagName}>
+              Tên: <Text style={styles.infoTag}>{item.type}</Text>
+            </Text>
+            <Text style={styles.tagName}>
+              Giá: <Text style={styles.infoTag}>{item.price}</Text>
+            </Text>
+            <Text style={styles.tagName}>
+              Giờ Mở: <Text style={styles.infoTag}>{item.time}</Text>
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </Animated.View>
     );
   };
 
@@ -75,7 +105,12 @@ const ProductList = () => {
         <Text style={styles.textHeader}>New Arrivals</Text>
         <TouchableOpacity
           onPress={() => {
-            navigate(screenName.ListProduct);
+            navigate(
+              screenName.ListProduct,
+              //   {
+              //   handleCreate: (text) => handleCreate(text)
+              // }
+            );
           }}>
           <Text style={styles.textHeader}>View All</Text>
         </TouchableOpacity>
@@ -86,13 +121,16 @@ const ProductList = () => {
           <View style={styles.carol}></View>
           <View style={{height:1, backgroundColor: "black"}}></View>
       </View> */}
-      <FlatList
+      <Animated.FlatList
         data={dataFoods}
         renderItem={({item, index}) => renderItems(item, index)}
         numColumns={1}
         showsVerticalScrollIndicator={false}
+        onScroll={Animated.event(
+          [{nativeEvent: {contentOffset: {y: scrollY}}}],
+          {useNativeDriver: true},
+        )}
       />
-      
     </View>
   );
 };
@@ -100,7 +138,7 @@ export default ProductList;
 
 const styles = StyleSheet.create({
   listView: {
-    flex: 3,
+    flex: 1,
   },
   headerProduct: {
     flexDirection: 'row',
@@ -113,7 +151,7 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: '#E8E5E5C9',
-    marginBottom: 15,
+    marginBottom: ITEM_MRBottom,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -123,14 +161,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 2.84,
     height: 120,
-    width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',
     borderRadius: 15,
-    paddingLeft: 10,
+    padding: ITEM_PADDING,
   },
   itemPhoto: {
-    height: 100,
+    height: ITEM_IMAGE,
     aspectRatio: 1 / 1,
     borderRadius: 10,
     resizeMode: 'cover',
@@ -157,13 +194,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'black',
   },
-//   menu: {
-//     height: 80,
-//     paddingVertical: 5
-// }, 
-// carol: {
-// flex:1,
-// backgroundColor: "red"
+  //   menu: {
+  //     height: 80,
+  //     paddingVertical: 5
+  // },
+  // carol: {
+  // flex:1,
+  // backgroundColor: "red"
 
-// }
+  // }
 });

@@ -1,40 +1,31 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
+import { SafeAreaView, View, StyleSheet, Text, TouchableOpacity, Image, Alert } from "react-native";
 import HeaderNavigation from "../../components/Header/Header";
 import { goBack, navigate } from "../../navigators/root-navigator";
 import { screenName } from "../../navigators/screens-name";
-import { iconBack, iconAvatar, avatarUser, iconRight, iconProfile, iconCart, iconFavorites, iconHistory } from "../../url";
+import { showWarning } from "../../ultils/typeS/helperFunc";
+import { iconBack, iconAvatar, avatarUser, iconRight, iconProfile, iconCart, iconFavorites, iconMaps } from "../../url";
+import { removeItemStored } from "../../components/AsyncStorage/AsyncStorage";
 
 const data = [
     {
-        img: iconProfile,
-        nameTag: "Profile Detail",
-        namePage: ""
-    },
-    {
         img: iconCart,
         nameTag: "My Card",
-        namePage: ""
+        namePage: "CartProduct"
 
     },
     {
         img: iconFavorites,
         nameTag: "My Favorites",
-        namePage: ""
+        namePage: "Favorite"
 
-    },
-    {
-        img: iconHistory,
-        nameTag: "History Order",
-        namePage: "HistoryOrder"
-
-    },
-
-]
+    }
+];
 
 const ProfileUser = () => {
     const navigation = useNavigation<any>()
+    const BG_Image = "https://cdn.pixabay.com/photo/2021/08/20/07/13/bird-6559677_1280.jpg"
     const HeaderLeft = () => {
         return (
             <TouchableOpacity
@@ -44,8 +35,7 @@ const ProfileUser = () => {
                     source={iconBack} />
             </TouchableOpacity>
         )
-    }
-
+    };
     const HeaderRight = () => {
         return (
             <View style={[styles.containerHeader, { alignItems: "flex-end" }]}>
@@ -54,9 +44,32 @@ const ProfileUser = () => {
                 />
             </View>
         )
-    }
+    };
+    const notificationRemove = (() => {
+        Alert.alert('Xác Thực', 'Bạn Muốn Đăng Xuất ???', [
+            {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel Pressed'),
+                style: 'cancel',
+            },
+            {
+                text: 'OK', onPress: () => {
+                    navigation.replace(screenName.WelcomePage)
+                    removeItemStored('email')
+                    removeItemStored('password')
+                    // removeItemStored('itemFavorite')
+                    // removeItemStored('cartItems')
+                    showWarning("Đăng Xuất Thành Công")
+                }
+            },
+        ]);
+    })
     return (
         <SafeAreaView style={styles.container}>
+            <Image source={{ uri: BG_Image }}
+                style={StyleSheet.absoluteFillObject}
+                blurRadius={40}
+            />
             <HeaderNavigation
                 childrenLeft={<HeaderLeft />}
                 childrenRight={<HeaderRight />}
@@ -73,10 +86,10 @@ const ProfileUser = () => {
                     {
                         data.map((item, index) => {
                             return (
-                                <TouchableOpacity 
-                                style={styles.funcUser}
-                                onPress={() => {navigate(item.namePage)}}
-                                key={index}>
+                                <TouchableOpacity
+                                    style={styles.funcUser}
+                                    onPress={() => { navigate(item.namePage) }}
+                                    key={index}>
                                     <View style={styles.viewIcon}>
                                         <Image source={item.img} />
                                     </View>
@@ -85,38 +98,41 @@ const ProfileUser = () => {
                                 </TouchableOpacity>
                             )
                         })
-                    }                    
+                    }
                 </View>
-                <TouchableOpacity style={styles.buttonLogout} onPress={() => {
-                    navigation.popToTop()
-                }}>
-                        <Text style={styles.textLogout}>Logout</Text>
+                <TouchableOpacity style={styles.buttonLogout}
+                    onPress={() => {
+                        notificationRemove()
+                    }}>
+                    <Text style={styles.textLogout}>Logout</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
     )
-}
+};
+
 export default ProfileUser
+
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1
     },
     containerHeader: {
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
         paddingHorizontal: 20,
-        paddingVertical: 20,
+        paddingVertical: 20
     },
     viewInfo: {
         flex: 1,
-        marginHorizontal: 20,
+        marginHorizontal: 20
     },
     headerInfo: {
         flexDirection: "row",
         marginTop: 30,
-        height:100,
-        backgroundColor: "#dcdcdc",
+        height: 100,
+        borderWidth: 0.5,
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,
@@ -149,9 +165,9 @@ const styles = StyleSheet.create({
         color: "#696969"
     },
     bodyInfo: {
-        height: 300,
+        height: 170,
         marginTop: 20,
-        backgroundColor: "#dcdcdc",
+        borderWidth: 0.5,
         shadowColor: '#000000',
         shadowOffset: {
             width: 0,
@@ -175,24 +191,24 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         fontSize: 18,
         fontWeight: "600",
-        flex:3
+        flex: 3
     },
     viewIcon: {
-        backgroundColor: "#a9a9a9",
-        padding:10,
+        backgroundColor: "#778899",
+        padding: 10,
         borderRadius: 15
     },
     icon: {
         justifyContent: "flex-end",
     },
     buttonLogout: {
-        backgroundColor: "#00bfff" , 
-        marginTop:30, 
+        backgroundColor: "#00bfff",
+        marginTop: 30,
         alignItems: "center",
         justifyContent: "center",
         marginHorizontal: 40,
         borderRadius: 20,
-        shadowColor: '#000000',
+        shadowColor: "#000000",
         shadowOffset: {
             width: 0,
             height: 1
@@ -201,7 +217,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
     },
     textLogout: {
-        fontSize:20, 
+        fontSize: 20,
         fontWeight: "800",
         paddingHorizontal: 20,
         paddingVertical: 20

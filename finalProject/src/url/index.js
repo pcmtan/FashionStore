@@ -18,6 +18,10 @@ const profileTab = require('./Image/profile-tab.png')
 const menuTab = require('./Image/menu-tab.png')
 const createTab = require('./Image/create-tab.png')
 const iconCreate = require('./Image/iconCreate.png')
+const iconHeaderRed = require('./Image/iconHeaderRed.png')
+const iconMaps = require('./Image/icon-maps.png')
+const cartTab = require('./Image/cart-tab.png')
+const iconDelete = require('./Image/iconDelete.png')
 export {
     logoLogin,
     backgroundWC,
@@ -38,5 +42,9 @@ export {
     profileTab,
     menuTab,
     createTab,
-    iconCreate
+    iconCreate,
+    iconHeaderRed,
+    iconMaps,
+    cartTab,
+    iconDelete
 }
