@@ -35,6 +35,8 @@ export interface User {
 }
 
 const RegisterPage = () => {
+
+  const [checkInput, setCheckInput] = useState<boolean>()
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
   const [errorName, setErrorName] = useState('');
@@ -78,14 +80,21 @@ const RegisterPage = () => {
     getDataUser()
   }, [])
 
-  const checkEmailExists = (email) => {
-    const checkEmail = dataUser.some(data => data.email == email)
-    if (checkEmail == true) {
-      showError("Email Đã Tồn Tại")
+  const registerAccount = (email) => {
+    if (name != "" || email != "" || password != "" || confirmPassword != "") {
+      setCheckInput(true)
+      const checkEmail = dataUser.some(data => data.email == email)
+      if (checkEmail == true) {
+        showError("Email Đã Tồn Tại")
+      } else {
+        checkPass()
+      }
     } else {
-      checkPass()
+      setCheckInput(false)
+      showError("Vui Lòng Nhập Đủ Thông Tin")
     }
   }
+
 
   const checkPass = () => {
     if (password == confirmPassword) {
@@ -126,8 +135,8 @@ const RegisterPage = () => {
           <Image source={logoLogin} style={styles.logo} />
           <View style={styles.viewInfo}>
             <View>
-              <Text style={styles.textWC1}>Sign Up</Text>
-              <Text style={styles.textWC2}>Create an new account</Text>
+              <Text style={styles.textWC1}>Đăng Ký</Text>
+              <Text style={styles.textWC2}>Tạo tài khoản mới</Text>
             </View>
             <View style={styles.inputView}>
               <TextInput
@@ -151,8 +160,12 @@ const RegisterPage = () => {
                 }}
                 blurOnSubmit={false}
               />
-              <Text style={styles.errorFormat}>{errorName}</Text>
-
+              {
+                checkInput == false && errorName != ""
+                  ?
+                  <Text style={styles.errorFormat}>{errorName}</Text>
+                  : null
+              }
               <TextInput
                 style={styles.input}
                 placeholderTextColor={'#696969'}
@@ -175,7 +188,12 @@ const RegisterPage = () => {
                 }}
                 blurOnSubmit={false}
               />
-              <Text style={styles.errorFormat}>{errorEmail}</Text>
+              {
+                checkInput == false && email != ""
+                  ?
+                  <Text style={styles.errorFormat}>{errorEmail}</Text>
+                  : null
+              }
               <TextInput
                 style={styles.input}
                 placeholderTextColor={'#696969'}
@@ -200,7 +218,12 @@ const RegisterPage = () => {
                 }}
                 blurOnSubmit={false}
               />
-              <Text style={styles.errorFormat}>{errorPassword}</Text>
+              {
+                checkInput == false && errorPassword != ""
+                  ?
+                  <Text style={styles.errorFormat}>{errorPassword}</Text>
+                  : null
+              }
 
               <TextInput
                 style={styles.input}
@@ -216,11 +239,11 @@ const RegisterPage = () => {
             <TouchableHighlight
               style={styles.loginButton}
               onPress={() => {
-                checkEmailExists(email)
+                registerAccount(email)
               }}
               activeOpacity={0.6}
               underlayColor="#696969">
-              <Text style={styles.textLogin}>Register</Text>
+              <Text style={styles.textLogin}>Đăng Ký</Text>
             </TouchableHighlight>
           </View>
         </ScrollView>

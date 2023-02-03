@@ -20,7 +20,7 @@ import {
 import HeaderNavigation from '../../components/Header/Header';
 import { goBack, navigate } from '../../navigators/root-navigator';
 import { screenName } from '../../navigators/screens-name';
-import { showSuccess } from '../../ultils/typeS/helperFunc';
+import { showError, showSuccess } from '../../ultils/typeS/helperFunc';
 import { homeTab, iconBack, iconDelete } from '../../url';
 
 export interface IFoods {
@@ -48,7 +48,6 @@ export const CartProduct = () => {
   const BG_Image =
     'https://cdn.pixabay.com/photo/2021/08/20/07/13/bird-6559677_1280.jpg';
 
-  // call api
   const HeaderLeft = () => {
     return (
       <TouchableOpacity
@@ -160,8 +159,8 @@ export const CartProduct = () => {
   };
 
   const getShipper = priceShipper => {
-    let totalShip = 0 ;
-    for(let i = 0; i < priceShipper.length; i++) {
+    let totalShip = 0;
+    for (let i = 0; i < priceShipper.length; i++) {
       let priceShip = priceShipper[i].price
       totalShip += priceShip
     }
@@ -190,7 +189,22 @@ export const CartProduct = () => {
       },
       { text: 'OK', onPress: () => deleteItemFromCart(ID) },
     ]);
-  })
+  });
+
+  const payOrder = () => {
+    getItemStorage('cartItems').then(item => {
+      let result = JSON.parse(item || "[]")
+      console.log("asdasd", result);
+      if (item == undefined) {
+        showError("Không Có Sản Phẩm")
+      } else {
+        removeItemStored('cartItems')
+        getDataCart()
+        showSuccess("Thanh Toán Thành Công")
+        navigate(screenName.HomePage)
+      }
+    })
+  }
 
   const renderItems = (item: IFoods, index) => {
     return (
@@ -305,12 +319,7 @@ export const CartProduct = () => {
                 <TouchableOpacity
                   style={styles.viewCheckout}
                   onPress={() => {
-                    removeItemStored('cartItems')
-                    getDataCart()
-                    setTimeout(() => {
-                      showSuccess("Thanh Toán Thành Công")
-                      navigate(screenName.HomePage)
-                    }, 500)
+                    payOrder()
                   }}
                 >
                   <Text style={styles.textCheckout}>CHECKOUT</Text>

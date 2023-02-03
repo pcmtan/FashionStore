@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { cartTab, createTab, homeTab, menuTab, profileTab } from "../url"
 import { View, StyleSheet, Text, Image } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -8,11 +8,25 @@ import ListProduct from "../screens/ViewAll/ViewProduct";
 import CreateProduct from "../screens/CreateProduct/CreateProduct";
 import ProfileUser from "../screens/Profile/ProfileUser";
 import { CartProduct } from "../screens/Cart/CartProduct";
+import { getItemStorage } from "../components/AsyncStorage/AsyncStorage";
 
 
 const Tab = createBottomTabNavigator();
 
 const HomeTabs = () => {
+
+  const [numberCart, setNumberCart] = useState<number>()
+  const [showIcon, setShowIcon] = useState<boolean>(false)
+  getItemStorage('cartItems').then(result => {
+    let items = JSON.parse(result || "[]")
+    if(result != undefined) {
+      setNumberCart(items.length)
+      setShowIcon(true)
+    }else{
+      setShowIcon(false)
+    }
+  })
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -38,7 +52,6 @@ const HomeTabs = () => {
           tabBarIcon: ({ focused }) => (
             <View style={styles.buttonTab}>
               <Image source={homeTab} style={styles.image} />
-              {/* <Text style={{ color: focused ? "#e32f45" : "#748c94", fontWeight: "600" }}>Home</Text> */}
             </View>
           )
         }}
@@ -50,7 +63,6 @@ const HomeTabs = () => {
           tabBarIcon: ({ focused }) => (
             <View style={styles.buttonTab}>
               <Image source={menuTab} style={styles.image} />
-              {/* <Text style={{ color: focused ? "#e32f45" : "#748c94", fontWeight: "600" }}>List</Text> */}
             </View>
           )
         }}
@@ -62,7 +74,13 @@ const HomeTabs = () => {
           tabBarIcon: ({ focused }) => (
             <View style={styles.buttonTab}>
               <Image source={cartTab} style={styles.image} />
-              {/* <Text style={{ color: focused ? "#e32f45" : "#748c94", fontWeight: "600" }}>Cart</Text> */}
+              {
+                showIcon == true ? 
+                <View style={styles.countCart}>
+                  <Text style={{alignSelf: "center"}}>{numberCart}</Text>
+                </View>
+                : null
+              }
             </View>
           )
         }}
@@ -76,7 +94,6 @@ const HomeTabs = () => {
           tabBarIcon: ({ focused }) => (
             <View style={styles.buttonTab}>
               <Image source={createTab} style={styles.image} />
-              {/* <Text style={{ color: focused ? "#e32f45" : "#748c94", fontWeight: "600" }}>Create</Text> */}
             </View>
           )
         }}
@@ -102,7 +119,7 @@ export default HomeTabs
 
 const styles = StyleSheet.create({
   image: {
-    height: 50,
+    height: 60,
     aspectRatio: 1 / 1
   },
   shadow: {
@@ -117,6 +134,17 @@ const styles = StyleSheet.create({
   buttonTab: {
     alignItems: "center",
     justifyContent: "center",
+  },
+  countCart: {
+    height:25,
+    aspectRatio: 1/1,
+    backgroundColor: "#F6A139",
+    position: "absolute",
+    top: 0,
+    right: 0,
+    borderRadius: 20,
+    alignSelf: "center", 
+    justifyContent: "center"
   }
 })
 

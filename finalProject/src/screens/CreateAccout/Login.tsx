@@ -88,9 +88,9 @@ const LoginPage = () => {
           <Image source={logoLogin} style={styles.logo} />
           <View style={styles.viewInfo}>
             <View>
-              <Text style={styles.textWC1}>Welcome!</Text>
+              <Text style={styles.textWC1}>Xin Chào !</Text>
               <Text style={styles.textWC2}>
-                Please login or sign up to continue our app
+                Hãy đăng nhập hoặc đăng ký để sử dụng
               </Text>
             </View>
             <View style={styles.inputView}>
@@ -103,7 +103,7 @@ const LoginPage = () => {
                   setErrorEmail(
                     isValidEmail(text) == true
                       ? ''
-                      : 'Email not is correct format',
+                      : 'Email không đúng format',
                   );
                   setGetEmail(text);
                 }}
@@ -118,7 +118,7 @@ const LoginPage = () => {
                   setErrorPassword(
                     isValidPassword(text) == true
                       ? ''
-                      : 'Password must be at least 3 char',
+                      : 'Mật khẩu phải dài hơn 3 kí tự',
                   );
                   setGetPassword(text);
                 }}
@@ -126,7 +126,7 @@ const LoginPage = () => {
               />
               <Text style={styles.errorFormat}>{errorPassword}</Text>
             </View>
-            <Text style={styles.forget}>Forget Password</Text>
+            <Text style={styles.forget}>Quên Mật Khẩu</Text>
             <TouchableHighlight
               style={styles.loginButton}
               onPress={() => {
@@ -134,15 +134,15 @@ const LoginPage = () => {
               }}
               activeOpacity={0.6}
               underlayColor="#696969">
-              <Text style={styles.textLogin}>Login</Text>
+              <Text style={styles.textLogin}>Đăng Nhập</Text>
             </TouchableHighlight>
             <View style={styles.loginText}>
-              <Text style={styles.textSign1}>Don't have an account ? </Text>
+              <Text style={styles.textSign1}>Không Có Tài Khoản ? </Text>
               <TouchableOpacity
                 onPress={() => {
                   navigation.navigate(screenName.RegisterPage);
                 }}>
-                <Text style={styles.textSign2}>Sign Up</Text>
+                <Text style={styles.textSign2}>Đăng Ký</Text>
               </TouchableOpacity>
             </View>
           </View>

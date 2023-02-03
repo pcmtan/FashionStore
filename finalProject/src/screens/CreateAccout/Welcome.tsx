@@ -44,14 +44,14 @@ const WelcomePage = () => {
             onPress={() => {
               navigate(screenName.LoginPage);
             }}>
-            <Text style={styles.textLogin}>Login</Text>
+            <Text style={styles.textLogin}>Đăng Nhập</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.loginButton}
             onPress={() => {
               navigate(screenName.RegisterPage);
             }}>
-            <Text style={styles.textLogin}>Register</Text>
+            <Text style={styles.textLogin}>Đăng Ký</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
