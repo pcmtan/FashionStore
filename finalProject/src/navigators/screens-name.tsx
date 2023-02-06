@@ -10,4 +10,9 @@ export enum screenName {
     ListProduct = "ListProduct",
     HistoryOrder = "HistoryOrder",
     CreateProduct = "CreateProduct",
+    HomeTabs = "HomeTabs",
+    Favorite = "Favorite",
+    Page404 = "Page404",
+    MapsView = "MapsView",
+    CartProduct = "CartProduct"
 }

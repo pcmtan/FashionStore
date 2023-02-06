@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   SafeAreaView,
   View,
@@ -13,16 +13,30 @@ import {
   Platform,
 } from 'react-native';
 import HeaderNavigation from '../../components/Header/Header';
-import {goBack, navigate} from '../../navigators/root-navigator';
-import {iconBack, logoLogin} from '../../url';
+import { goBack, navigate } from '../../navigators/root-navigator';
+import { iconBack, logoLogin } from '../../url';
 import {
   isValidEmail,
   isValidPassword,
   isValidName,
-} from '../../ultils/validation';
-import {screenName} from '../../navigators/screens-name';
+} from '../../ultils/typeS/validation';
+import { screenName } from '../../navigators/screens-name';
+import { showError, showSuccess, showWarning } from '../../ultils/typeS/helperFunc';
+import { setItemStorage } from '../../components/AsyncStorage/AsyncStorage';
+
+export interface User {
+  password: string,
+  email: string,
+  address: string,
+  phone: number,
+  avatar: string,
+  name: string,
+  id: string
+}
 
 const RegisterPage = () => {
+
+  const [checkInput, setCheckInput] = useState<boolean>()
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
   const [errorName, setErrorName] = useState('');
@@ -30,9 +44,10 @@ const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [dataUser, SetDataUser] = useState<User[]>([]);
 
-  const postAccount = async () => {
-    await fetch('https://63ae5ea23e46516916702e14.mockapi.io/user', {
+  const postAccount = () => {
+    return fetch('https://63ae5ea23e46516916702e14.mockapi.io/user', {
       method: 'POST',
       headers: {
         // "Content-Type": "application/x-www-form-urlencoded"
@@ -49,31 +64,62 @@ const RegisterPage = () => {
         console.log(response.status, 'ok');
       })
       .catch(error => {
-        // console.log(error)
-        // alert("Lỗi nè");
+        console.log(error)
       });
   };
 
+  const getDataUser = () => {
+    fetch('https://63ae5ea23e46516916702e14.mockapi.io/user')
+      .then(response => response.json())
+      .then(responseJson => {
+        SetDataUser(responseJson)
+      })
+  }
+
+  useEffect(() => {
+    getDataUser()
+  }, [])
+
+  const registerAccount = (email) => {
+    if (name != "" || email != "" || password != "" || confirmPassword != "") {
+      setCheckInput(true)
+      const checkEmail = dataUser.some(data => data.email == email)
+      if (checkEmail == true) {
+        showError("Email Đã Tồn Tại")
+      } else {
+        checkPass()
+      }
+    } else {
+      setCheckInput(false)
+      showError("Vui Lòng Nhập Đủ Thông Tin")
+    }
+  }
+
+
   const checkPass = () => {
     if (password == confirmPassword) {
+      postAccount();
+      showSuccess('Đăng Ký Thành Công');
+      setItemStorage('email', email)
+      setItemStorage('password', password);
+      navigate(screenName.HomeTabs);
       setEmail('');
       setName('');
       setPassword('');
-      setConfirmPassword('');
-      return true;
+      setConfirmPassword('')
     } else {
-      return false;
+      showWarning("Mẩu Khẩu Không Giống Nhau")
     }
   };
   const nameRef = useRef<any>();
   const emailRef = useRef<any>();
   const passwordRef = useRef<any>();
-  const confirmpasswordRef = useRef<any>();
+  const confirmPasswordRef = useRef<any>();
 
   const HeaderLeft = () => {
     return (
       <TouchableOpacity
-        style={[styles.containerHeader, {alignItems: 'flex-start'}]}
+        style={[styles.containerHeader, { alignItems: 'flex-start' }]}
         onPress={goBack}>
         <Image source={iconBack} />
       </TouchableOpacity>
@@ -89,8 +135,8 @@ const RegisterPage = () => {
           <Image source={logoLogin} style={styles.logo} />
           <View style={styles.viewInfo}>
             <View>
-              <Text style={styles.textWC1}>Sign Up</Text>
-              <Text style={styles.textWC2}>Create an new account</Text>
+              <Text style={styles.textWC1}>Đăng Ký</Text>
+              <Text style={styles.textWC2}>Tạo tài khoản mới</Text>
             </View>
             <View style={styles.inputView}>
               <TextInput
@@ -114,8 +160,12 @@ const RegisterPage = () => {
                 }}
                 blurOnSubmit={false}
               />
-              <Text style={styles.errorFormat}>{errorName}</Text>
-
+              {
+                checkInput == false && errorName != ""
+                  ?
+                  <Text style={styles.errorFormat}>{errorName}</Text>
+                  : null
+              }
               <TextInput
                 style={styles.input}
                 placeholderTextColor={'#696969'}
@@ -138,7 +188,12 @@ const RegisterPage = () => {
                 }}
                 blurOnSubmit={false}
               />
-              <Text style={styles.errorFormat}>{errorEmail}</Text>
+              {
+                checkInput == false && email != ""
+                  ?
+                  <Text style={styles.errorFormat}>{errorEmail}</Text>
+                  : null
+              }
               <TextInput
                 style={styles.input}
                 placeholderTextColor={'#696969'}
@@ -157,13 +212,18 @@ const RegisterPage = () => {
                 returnKeyType="next"
                 onSubmitEditing={() => {
                   password != ''
-                    ? confirmpasswordRef.current &&
-                      confirmpasswordRef.current.focus()
+                    ? confirmPasswordRef.current &&
+                    confirmPasswordRef.current.focus()
                     : passwordRef.current && passwordRef.current.focus();
                 }}
                 blurOnSubmit={false}
               />
-              <Text style={styles.errorFormat}>{errorPassword}</Text>
+              {
+                checkInput == false && errorPassword != ""
+                  ?
+                  <Text style={styles.errorFormat}>{errorPassword}</Text>
+                  : null
+              }
 
               <TextInput
                 style={styles.input}
@@ -172,25 +232,18 @@ const RegisterPage = () => {
                 secureTextEntry={true}
                 value={confirmPassword}
                 onChangeText={setConfirmPassword}
-                ref={confirmpasswordRef}
+                ref={confirmPasswordRef}
                 returnKeyType="done"
               />
             </View>
             <TouchableHighlight
               style={styles.loginButton}
               onPress={() => {
-                if (checkPass()) {
-                  postAccount();
-                  navigate(screenName.HomePage);
-                  alert('Register Success');
-                } else {
-                  alert("Password and confirmation doesn't match");
-                  // console.log();
-                }
+                registerAccount(email)
               }}
               activeOpacity={0.6}
               underlayColor="#696969">
-              <Text style={styles.textLogin}>Register</Text>
+              <Text style={styles.textLogin}>Đăng Ký</Text>
             </TouchableHighlight>
           </View>
         </ScrollView>
@@ -203,20 +256,20 @@ export default RegisterPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white",
   },
   containerHeader: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: "center",
     paddingHorizontal: 20,
   },
   errorFormat: {
-    color: 'red',
+    color: "red",
     fontSize: 14,
-    fontWeight: '400',
+    fontWeight: "400",
   },
   logo: {
-    alignSelf: 'center',
+    alignSelf: "center",
     width: 200,
     height: 200,
     borderRadius: 100,
@@ -228,11 +281,11 @@ const styles = StyleSheet.create({
   },
   textWC1: {
     fontSize: 24,
-    fontWeight: '800',
+    fontWeight: "800",
     paddingVertical: 10,
   },
   textWC2: {
-    color: '#778899',
+    color: "#778899",
   },
   inputView: {
     paddingVertical: 10,
@@ -241,14 +294,14 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     padding: 20,
     paddingLeft: 32,
-    backgroundColor: '#d3d3d3',
+    backgroundColor: "#d3d3d3",
     borderRadius: 100,
-    width: '100%',
-    fontWeight: '600',
+    width: "100%",
+    fontWeight: "600",
   },
   loginButton: {
-    backgroundColor: '#F6A139',
-    alignItems: 'center',
+    backgroundColor: "#F6A139",
+    alignItems: "center",
     paddingVertical: 20,
     paddingHorizontal: 20,
     marginVertical: 10,
@@ -257,7 +310,7 @@ const styles = StyleSheet.create({
   },
   textLogin: {
     fontSize: 20,
-    fontWeight: '800',
-    color: 'white',
+    fontWeight: "800",
+    color: "white",
   },
 });
