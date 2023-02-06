@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         height: 50, 
+        
     },
     headerInSide: {
         flexDirection: "row",
