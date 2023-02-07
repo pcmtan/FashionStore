@@ -36,7 +36,7 @@ const LoginPage = () => {
       <TouchableOpacity
         style={[styles.containerHeader, { alignItems: 'flex-start' }]}
         onPress={goBack}>
-        <Image source={iconBack} />
+        <Image source={iconBack} style={styles.iconBackStyle} />
       </TouchableOpacity>
     );
   };
@@ -69,7 +69,15 @@ const LoginPage = () => {
       setItemStorage('email', getEmail)
       setItemStorage('password', getPassword);
       showSuccess('Đăng Nhập Thành Công');
-      navigate(screenName.HomeTabs);
+      navigation.reset({
+        index: 0,
+        routes: [
+          {
+            name: 'HomeTabs',
+            params: "",
+          },
+        ],
+      })
     } else if (email == '' || password == '') {
       showError('Vui Lòng Nhập Tài Khoản hoặc Mật Khẩu');
     } else {
@@ -157,6 +165,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+  },
+  iconBackStyle: {
+    height:50,
+    aspectRatio: 1/1
   },
   containerHeader: {
     flex: 1,

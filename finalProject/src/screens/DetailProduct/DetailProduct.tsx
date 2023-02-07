@@ -50,7 +50,7 @@ const DetailProduct = () => {
       <TouchableOpacity
         style={[styles.containerHeader, { alignItems: 'flex-start' }]}
         onPress={goBack}>
-        <Image source={iconBack} />
+        <Image source={iconBack} style = {styles.iconBackStyle} />
       </TouchableOpacity>
     );
   };
@@ -277,6 +277,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  iconBackStyle: {
+    height:50,
+    aspectRatio: 1/1
   },
   containerHeader: {
     flex: 1,
