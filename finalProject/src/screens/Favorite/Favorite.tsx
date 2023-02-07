@@ -47,7 +47,7 @@ export const FavoriteProduct = () => {
         <TouchableOpacity
           style={[styles.containerHeader, { alignItems: 'flex-start' }]}
           onPress={goBack}>
-          <Image source={iconBack} />
+          <Image source={iconBack} style={styles.iconBackStyle} />
         </TouchableOpacity>
       );
     };
@@ -197,6 +197,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 20,
+  },
+  iconBackStyle: {
+    height:50,
+    aspectRatio: 1/1
   },
   textHeader: {
     fontSize: 20,

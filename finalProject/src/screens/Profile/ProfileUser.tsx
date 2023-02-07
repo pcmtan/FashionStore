@@ -32,7 +32,7 @@ const ProfileUser = () => {
                 style={[styles.containerHeader, { alignItems: "flex-start" }]}
                 onPress={goBack}>
                 <Image
-                    source={iconBack} />
+                    source={iconBack} style={styles.iconBackStyle} />
             </TouchableOpacity>
         )
     };
@@ -54,11 +54,9 @@ const ProfileUser = () => {
             },
             {
                 text: 'OK', onPress: () => {
-                    navigation.replace(screenName.WelcomePage)
-                    removeItemStored('email')
-                    removeItemStored('password')
-                    // removeItemStored('itemFavorite')
-                    // removeItemStored('cartItems')
+                    navigation.replace(screenName.WelcomePage),
+                    removeItemStored('email'),
+                    removeItemStored('password'),
                     showWarning("Đăng Xuất Thành Công")
                 }
             },
@@ -128,6 +126,10 @@ const styles = StyleSheet.create({
         flex: 1,
         marginHorizontal: 20
     },
+    iconBackStyle: {
+        height:60,
+        aspectRatio: 1/1
+      },
     headerInfo: {
         flexDirection: "row",
         marginTop: 30,

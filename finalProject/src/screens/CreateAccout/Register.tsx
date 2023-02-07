@@ -13,7 +13,7 @@ import {
   Platform,
 } from 'react-native';
 import HeaderNavigation from '../../components/Header/Header';
-import { goBack, navigate } from '../../navigators/root-navigator';
+import { goBack, navigate, navigationRef } from '../../navigators/root-navigator';
 import { iconBack, logoLogin } from '../../url';
 import {
   isValidEmail,
@@ -23,6 +23,7 @@ import {
 import { screenName } from '../../navigators/screens-name';
 import { showError, showSuccess, showWarning } from '../../ultils/typeS/helperFunc';
 import { setItemStorage } from '../../components/AsyncStorage/AsyncStorage';
+import { useNavigation } from '@react-navigation/native';
 
 export interface User {
   password: string,
@@ -35,7 +36,7 @@ export interface User {
 }
 
 const RegisterPage = () => {
-
+  const navigation = useNavigation<any>()
   const [checkInput, setCheckInput] = useState<boolean>()
   const [errorEmail, setErrorEmail] = useState('');
   const [errorPassword, setErrorPassword] = useState('');
@@ -102,7 +103,15 @@ const RegisterPage = () => {
       showSuccess('Đăng Ký Thành Công');
       setItemStorage('email', email)
       setItemStorage('password', password);
-      navigate(screenName.HomeTabs);
+      navigation.reset({
+        index: 0,
+        routes: [
+          {
+            name: 'HomeTabs',
+            params: "",
+          },
+        ],
+      })
       setEmail('');
       setName('');
       setPassword('');
@@ -121,7 +130,7 @@ const RegisterPage = () => {
       <TouchableOpacity
         style={[styles.containerHeader, { alignItems: 'flex-start' }]}
         onPress={goBack}>
-        <Image source={iconBack} />
+        <Image source={iconBack} style={styles.iconBackStyle} />
       </TouchableOpacity>
     );
   };
@@ -262,6 +271,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     paddingHorizontal: 20,
+  },
+  iconBackStyle: {
+    height:50,
+    aspectRatio: 1/1
   },
   errorFormat: {
     color: "red",
