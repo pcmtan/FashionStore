@@ -53,7 +53,7 @@ export const CartProduct = () => {
       <TouchableOpacity
         style={[styles.containerHeader, { alignItems: 'flex-start' }]}
         onPress={goBack}>
-        <Image source={iconBack} />
+        <Image source={iconBack} style={styles.iconBackStyle} />
       </TouchableOpacity>
     );
   };
@@ -71,7 +71,7 @@ export const CartProduct = () => {
         onPress={() => {
           navigate(screenName.HomePage);
         }}>
-        <Image source={homeTab} style={{ height: 50, aspectRatio: 1 / 1 }} />
+        <Image source={homeTab} style={{ height: 45, aspectRatio: 1 / 1 }} />
       </TouchableOpacity>
     );
   };
@@ -192,18 +192,14 @@ export const CartProduct = () => {
   });
 
   const payOrder = () => {
-    getItemStorage('cartItems').then(item => {
-      let result = JSON.parse(item || "[]")
-      console.log("asdasd", result);
-      if (item == undefined) {
-        showError("Không Có Sản Phẩm")
-      } else {
-        removeItemStored('cartItems')
-        getDataCart()
-        showSuccess("Thanh Toán Thành Công")
-        navigate(screenName.HomePage)
-      }
-    })
+    if (dataCart.length < 1) {
+      showError("Không Có Sản Phẩm")
+    } else {
+      removeItemStored('cartItems')
+      getDataCart()
+      navigate(screenName.HomePage)
+      showSuccess("Thanh Toán Thành Công")
+    };
   }
 
   const renderItems = (item: IFoods, index) => {
@@ -343,6 +339,10 @@ const styles = StyleSheet.create({
   totalSt: {
     fontSize: 18,
     fontWeight: "600"
+  },
+  iconBackStyle: {
+    height: 50,
+    aspectRatio: 1 / 1
   },
   containerHeader: {
     flex: 1,

@@ -125,7 +125,7 @@ const CreateProduct = () => {
                     <View style={styles.viewInfo}>
                         <View style={styles.headerView}>
                             <TouchableOpacity style={styles.textWC2} onPress={() => goBack()}>
-                                <Image source={iconBack} />
+                                <Image source={iconBack} style={styles.iconBackStyle} />
                             </TouchableOpacity>
                             <Text style={styles.textWC1}>Thêm Món Ăn</Text>
                             <View style={styles.textWC2} />
@@ -339,6 +339,10 @@ const styles = StyleSheet.create({
         height: 200,
         borderRadius: 100,
     },
+    iconBackStyle: {
+        height:50,
+        aspectRatio: 1/1
+      },
     viewInfo: {
         flex: 1,
         marginVertical: 10,
