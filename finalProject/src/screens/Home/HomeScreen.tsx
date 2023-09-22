@@ -11,9 +11,9 @@ import {
   ActivityIndicator,
   RefreshControl
 } from 'react-native';
-import {navigate} from '../../navigators/root-navigator';
+import {goBack, navigate} from '../../navigators/root-navigator';
 import {screenName} from '../../navigators/screens-name';
-import {iconAvatar, iconCreate, iconSearched} from '../../url';
+import {iconAvatar, iconBack, iconCreate, iconSearched} from '../../url';
 import LocalBrand from './LocalBrand/Brand';
 import {useFocusEffect, useNavigation, useRoute} from '@react-navigation/native';
 import AnimatedTyping from '../../components/AnimationText/AnimationType';
@@ -315,13 +315,4 @@ const styles = StyleSheet.create({
     // paddingLeft:10,
     color: "#800000",
   },
-  //   menu: {
-  //     height: 80,
-  //     paddingVertical: 5
-  // },
-  // carol: {
-  // flex:1,
-  // backgroundColor: "red"
-
-  // }
 });

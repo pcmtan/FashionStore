@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { cartTab, createTab, homeTab, menuTab, profileTab } from "../url"
 import { View, StyleSheet, Text, Image } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -16,17 +16,18 @@ const Tab = createBottomTabNavigator();
 const HomeTabs = () => {
 
   const [numberCart, setNumberCart] = useState<number>()
-  const [showIcon, setShowIcon] = useState<boolean>(false)
-  getItemStorage('cartItems').then(result => {
-    let items = JSON.parse(result || "[]")
-    if(result != undefined) {
-      setNumberCart(items.length)
-      setShowIcon(true)
-    }else{
-      setShowIcon(false)
-    }
-  })
+  const [showIcon, setShowIcon] = useState<boolean>()
 
+    getItemStorage('cartItems').then(result => {
+      let items = JSON.parse(result || "[]")
+      if(result != undefined) {
+        setNumberCart(items.length)
+        setShowIcon(true)
+      }else{
+        setShowIcon(false)
+      }
+    })
+  
   return (
     <Tab.Navigator
       screenOptions={{
@@ -37,8 +38,8 @@ const HomeTabs = () => {
           left: 20,
           right: 20,
           borderRadius: 15,
-          paddingVertical: 20,
-          height: 70,
+          paddingVertical: 30,
+          height: 65,
           ...styles.shadow
         },
         tabBarShowLabel: false
@@ -49,7 +50,7 @@ const HomeTabs = () => {
       <Tab.Screen name={screenName.HomePage}
         component={HomePage}
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: () => (
             <View style={styles.buttonTab}>
               <Image source={homeTab} style={styles.image} />
             </View>
@@ -60,7 +61,7 @@ const HomeTabs = () => {
       <Tab.Screen name={screenName.ListProduct}
         component={ListProduct}
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: () => (
             <View style={styles.buttonTab}>
               <Image source={menuTab} style={styles.image} />
             </View>
@@ -71,7 +72,7 @@ const HomeTabs = () => {
       <Tab.Screen name={screenName.CartProduct}
         component={CartProduct}
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: () => (
             <View style={styles.buttonTab}>
               <Image source={cartTab} style={styles.image} />
               {
@@ -86,14 +87,12 @@ const HomeTabs = () => {
         }}
       />
 
-
-
       <Tab.Screen name={screenName.CreateProduct}
         component={CreateProduct}
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: () => (
             <View style={styles.buttonTab}>
-              <Image source={createTab} style={styles.image} />
+              <Image source={createTab} style={styles.image}/>
             </View>
           )
         }}
@@ -102,10 +101,9 @@ const HomeTabs = () => {
       <Tab.Screen name={screenName.ProfileUser}
         component={ProfileUser}
         options={{
-          tabBarIcon: ({ focused }) => (
+          tabBarIcon: () => (
             <View style={styles.buttonTab}>
-              <Image source={profileTab} style={styles.image} />
-              {/* <Text style={{ color: focused ? "#e32f45" : "#748c94", fontWeight: "600" }}>Profle</Text> */}
+              <Image source={profileTab} style={styles.image}/>
             </View>
           )
         }}
@@ -119,7 +117,7 @@ export default HomeTabs
 
 const styles = StyleSheet.create({
   image: {
-    height: 60,
+    height: 40,
     aspectRatio: 1 / 1
   },
   shadow: {
@@ -134,17 +132,20 @@ const styles = StyleSheet.create({
   buttonTab: {
     alignItems: "center",
     justifyContent: "center",
+    paddingHorizontal:10,
+    paddingVertical:15
   },
   countCart: {
     height:25,
     aspectRatio: 1/1,
     backgroundColor: "#F6A139",
     position: "absolute",
-    top: 0,
+    top: -2,
     right: 0,
     borderRadius: 20,
     alignSelf: "center", 
-    justifyContent: "center"
+    justifyContent: "center",
+    
   }
 })
 
